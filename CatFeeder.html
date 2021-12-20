@@ -139,19 +139,20 @@
           <p class="u-text u-text-16">The cat feeder's mechanical components consist of a stepper motor, a gear tray that colds 3 feeding cups, a lid with an opening to expose a single tray at a time, and a shell to cover the electrical components.&nbsp;<br>
             <br>This portion was provided by the professor, who took the role as a customer. Provided the mechanical shell of the cat feeder, a control circuit and PCB had to be designed to fit within the the cat feeder. There were already 4 built-in mounting holes inside of the feeder in addition to 3 buttons and a opening for the display. This mean't the PCB had to be designed to mount onto those holes and allow for the necessary componenets to be exposed through the top lid of the feeder.
           </p>
-          <div class="u-container-style u-group u-shape-rectangle u-group-3">
-            <div class="u-container-layout u-valign-top u-container-layout-10">
+          <div class="u-container-style u-expanded-width u-group u-shape-rectangle u-group-3">
+            <div class="u-container-layout u-container-layout-10">
               <h3 class="u-text u-text-17">Electrical</h3>
               <p class="u-align-left u-text u-text-18">The cat feeder is powered by a 12 Volt DC wall plug. It contains a PCB that houses an Arduino, motor driver, and additional connections for power, the stepper motor, and the homing sensor. It also contains a I2C display and 3 push buttons. Using a buck converter, the 12 V input power is converted down to 5V, allowing for the PCB to power the Arduino,homing sensor, and clock.</p>
             </div>
           </div>
           <img class="u-align-center u-image u-image-default u-image-3" src="images/Schematic.JPG" alt="" data-image-width="1703" data-image-height="743">
+          <p class="u-align-center u-text u-text-19">Schematic of the control circuit for the cat feeder</p>
+          <p class="u-text u-text-20">After the control circuit was designed, a PCB was designed. The main constraint of the PCB was for it to mount onto the 4 pre-defined mounting holes, and for the buttons and I2C display to go through the pre-defined openings of the caddy shield. The DC input port should also align with the opening on the caddy such that a jack can connect to the cat feeder while the cat feeder is assembled. The final design of the PDB ended up being 2 layers, with a ground plane on the botton, and two power planes on the top- one for 5V and one for 12 V.&nbsp;</p>
         </div>
       </div>
     </section>
     <section class="u-align-left u-clearfix u-grey-5 u-section-2" id="sec-5809">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-text u-text-1">After the control circuit was designed, a PCB was designed. The main constraint of the PCB was for it to mount onto the 4 pre-defined mounting holes, and for the buttons and I2C display to go through the pre-defined openings of the caddy shield. The DC input port should also align with the opening on the caddy such that a jack can connect to the cat feeder while the cat feeder is assembled. The final design of the PDB ended up being 2 layers, with a ground plane on the botton, and two power planes on the top- one for 5V and one for 12 V.&nbsp;</p>
         <div id="carousel-bd35" data-interval="5000" data-u-ride="carousel" class="u-carousel u-expanded-width-xs u-slider u-slider-1">
           <ol class="u-absolute-hcenter u-carousel-indicators u-hidden u-carousel-indicators-1">
             <li data-u-target="#carousel-bd35" class="u-active u-grey-30" data-u-slide-to="0"></li>
@@ -161,15 +162,15 @@
             <div class="u-active u-align-center u-carousel-item u-container-style u-slide">
               <div class="u-container-layout u-valign-top u-container-layout-1">
                 <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="1600" data-image-height="827" src="images/PCBFront.jpg">
-                <h4 class="u-text u-text-default u-text-2">Front of PCB</h4>
-                <p class="u-text u-text-3">The top of the PCB. The top of the PCB has the I2C display and the buttons mounted. The other components are soldered to the bottom of the PCB due to a height constraint caused by the caddy cover.</p>
+                <h4 class="u-text u-text-default u-text-1">Front of PCB</h4>
+                <p class="u-text u-text-2">The top of the PCB. The top of the PCB has the I2C display and the buttons mounted. The other components are soldered to the bottom of the PCB due to a height constraint caused by the caddy cover.</p>
               </div>
             </div>
             <div class="u-align-center u-carousel-item u-container-style u-slide">
               <div class="u-container-layout u-valign-top u-container-layout-2">
                 <img alt="" class="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xl u-image u-image-default u-image-2" data-image-width="1254" data-image-height="590" src="images/PCBwire.JPG">
-                <h4 class="u-text u-text-default u-text-4">PCB Layout</h4>
-                <p class="u-text u-text-5">KiCAD PCB layout of the cat feeder microcontroller.</p>
+                <h4 class="u-text u-text-default u-text-3">PCB Layout</h4>
+                <p class="u-text u-text-4">KiCAD PCB layout of the cat feeder microcontroller.</p>
               </div>
             </div>
           </div>
@@ -188,18 +189,23 @@
             <span class="sr-only">+Next</span>
           </a>
         </div>
-        <h3 class="u-text u-text-6">&nbsp;Software</h3>
-        <p class="u-text u-text-7">The microcontroller was programmed using Arduino IDE. Arduino is the brains of the cat feeder. It supports the following features:<br>
-          <br>
-        </p>
-        <ul class="u-text u-text-8">
-          <li>Change/Set time: The user can set the time of the internal clock</li>
-          <li>Set Alarm: The user can set the daily alarm for the cat feeder to rotate</li>
-          <li>Rotate Motor: Controls the stepper motor rotation and speed</li>
-          <li>Display: Displays the necessary information onto the I2C device</li>
-          <li>Button Inputs: Takes mechanical button inputs into the system</li>
-        </ul>
-        <p class="u-text u-text-9">The user interacts with the cat feeder using the buttons that are located on the front panel next to the display. The user can use these buttons to change the time, set the alarm time, and toggle between the different modes of the cat feeder. As long as the cat feeder is powered by the 12 Volt poewr supply, the user can interact with the microcontroller. When the device is unplugged it will keep track of the time, though the user can still choose to re-adjust the clock if need be.</p>
+        <p class="u-text u-text-5">After the control circuit was designed, a PCB was designed. The main constraint of the PCB was for it to mount onto the 4 pre-defined mounting holes, and for the buttons and I2C display to go through the pre-defined openings of the caddy shield. The DC input port should also align with the opening on the caddy such that a jack can connect to the cat feeder while the cat feeder is assembled. The final design of the PDB ended up being 2 layers, with a ground plane on the botton, and two power planes on the top- one for 5V and one for 12 V.&nbsp;</p>
+        <div class="u-container-style u-expanded-width u-group u-group-1">
+          <div class="u-container-layout">
+            <h3 class="u-text u-text-6">&nbsp;Software</h3>
+            <p class="u-text u-text-7">The microcontroller was programmed using Arduino IDE. Arduino is the brains of the cat feeder. It supports the following features:<br>
+              <br>
+            </p>
+            <ul class="u-text u-text-8">
+              <li>Change/Set time: The user can set the time of the internal clock</li>
+              <li>Set Alarm: The user can set the daily alarm for the cat feeder to rotate</li>
+              <li>Rotate Motor: Controls the stepper motor rotation and speed</li>
+              <li>Display: Displays the necessary information onto the I2C device</li>
+              <li>Button Inputs: Takes mechanical button inputs into the system</li>
+            </ul>
+            <p class="u-text u-text-9">The user interacts with the cat feeder using the buttons that are located on the front panel next to the display. The user can use these buttons to change the time, set the alarm time, and toggle between the different modes of the cat feeder. As long as the cat feeder is powered by the 12 Volt poewr supply, the user can interact with the microcontroller. When the device is unplugged it will keep track of the time, though the user can still choose to re-adjust the clock if need be.</p>
+          </div>
+        </div>
         <h3 class="u-text u-text-10">&nbsp;Learn More</h3>
         <p class="u-text u-text-11">
           <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1" href="https://github.com/Kristtiya/KittyCaddy" target="_blank"><span class="u-file-icon u-icon u-icon-1"><img src="images/1051377.png" alt=""></span>&nbsp;Link to Github Repository
@@ -221,13 +227,13 @@
             <li data-u-target="#carousel-d2d5" data-u-slide-to="1" class="u-grey-70 u-shape-circle" style="width: 10px; height: 10px;"></li>
           </ol>
           <div class="u-carousel-inner u-gallery-inner" role="listbox">
-            <div class="u-active u-carousel-item u-effect-fade u-gallery-item u-carousel-item-1">
+            <div class="u-active u-carousel-item u-effect-fade u-gallery-item u-carousel-item-1" data-href="https://nicepage.com">
               <div class="u-back-slide" data-image-width="1600" data-image-height="1200">
                 <img class="u-back-image u-expanded" src="images/FrontALl.jpg">
               </div>
               <div class="u-align-center u-over-slide u-shading u-valign-bottom u-over-slide-1">
-                <h3 class="u-gallery-heading">Sample Title</h3>
-                <p class="u-gallery-text">Sample Text</p>
+                <h3 class="u-gallery-heading">DC-to-DC Power Converter</h3>
+                <p class="u-gallery-text">2021</p>
               </div>
             </div>
             <div class="u-carousel-item u-effect-fade u-gallery-item u-carousel-item-2">
